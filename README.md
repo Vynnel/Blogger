@@ -38,7 +38,7 @@ The program lets the writer delete a post
 * Postgres
 
 ## Setup/Installation Requirements
-* 
+* https://github.com/Vynnel/Blogger.git
 * download the zip file
 * unzip it on your documents folder
 * open the folder on your preferred text/code editor
