@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro%}
 <!-- Content block -->
+
+{%block styles%}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{%endblock%}
+
 {%block content%}
 <div class="container" style="padding-bottom: 20px;">
+  <a href="{{url_for('main.new_post')}}" class="btn btn-success">Create post</a>
+</div>
 
 </div>
-<div class="container">
+<div class="container" style= "font-family: 'Cormorant Upright', serif;">
     <h1>Recent posts</h1>
     <a href="/subscribe/{{current_user.id}}" class="btn btn-success">Subscribe</a>
     <hr>

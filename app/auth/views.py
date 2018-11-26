@@ -27,7 +27,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data, username=form.username.data, firstname=form.firstname.data,
-                    lastname=form.lastname.data, password=form.password.data, role_id=2, subscription=False)
+                    lastname=form.lastname.data, password=form.password.data, subscription=False)
         db.session.add(user)
         db.session.commit()
 

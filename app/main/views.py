@@ -25,26 +25,25 @@ def index():
 @main.route('/post/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
-    if current_user.role_id == 1:
-        post_form = PostForm()
-        if post_form.validate_on_submit():
-            title = post_form.title.data
-            text = post_form.text.data
+    post_form = PostForm()
+    if post_form.validate_on_submit():
+        title = post_form.title.data
+        text = post_form.text.data
 
-            users = User.query.all()
+        users = User.query.all()
 
-            # Update pitch instance
-            new_post = Post(title=title, text=text, post=current_user)
+        # Update pitch instance
+        new_post = Post(title=title, text=text, post=current_user)
 
-            # Save post method
-            new_post.save_post()
+        # Save post method
+        new_post.save_post()
 
-            for user in users:
-                if user.subscription:
-                    mail_message("New Post", "email/new_post",
-                                 user.email, user=user)
+        for user in users:
+            if user.subscription:
+                mail_message("New Post", "email/new_post",
+                                user.email, user=user)
 
-            return redirect(url_for('.index'))
+        return redirect(url_for('.index'))
 
     else:
         return redirect(url_for('.index'))
@@ -57,7 +56,7 @@ def new_post():
 def all_posts():
     posts = Post.query.order_by(Post.date_posted.desc()).all()
 
-    title = 'Blog posts'
+    title = 'Blogger posts'
 
     return render_template('posts.html', title=title, posts=posts)
 

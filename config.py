@@ -6,8 +6,8 @@ class Config:
     General configuration parent class
     '''
     SECRET_KEY = os.environ.get("SECRET_KEY") or 'Piecekeep'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blog'
-    UPLOADED_PHOTOS_DEST = 'app/static'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blogger'
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # email configurations
     MAIL_SERVER = 'smtp.gmail.com'
@@ -34,7 +34,7 @@ class TestConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blogger'
 
 
 class DevConfig(Config):
@@ -44,7 +44,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:rock1ville@localhost/blogger'
     DEBUG = True
 
 
